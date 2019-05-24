@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  php:
+    image: php:7.3-cli-alpine
+    working_dir: /code
+    volumes:
+      - .:/code
+    networks: 
+      - default
+    env_file:
+      - .env
+    command: sh
+
+networks:
+  default:
+    name: ${DOCKER_DEFAULT_NETWORK}
